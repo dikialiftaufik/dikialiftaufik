@@ -1,0 +1,51 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily at 03:17 UTC (off the hour to avoid queue spikes)
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: metrics
+  cancel-in-progress: true
+
+jobs:
+  render:
+    name: Render and publish metrics
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Generate metrics
+        env:
+          # The optional fine-grained PAT (secret METRICS_TOKEN) only adds
+          # private-repository aggregates; the default token covers public data.
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          HAS_PAT: ${{ secrets.METRICS_TOKEN != '' }}
+          OWNER: ${{ github.repository_owner }}
+          PYTHONPATH: scripts
+        run: |
+          flags=""
+          if [ "$HAS_PAT" = "true" ]; then flags="--include-private"; fi
+          python -m metrics --user "$OWNER" --out "$RUNNER_TEMP/dist" $flags
+
+      - name: Publish to the metrics branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan metrics-publish
+          git rm -rf --quiet .
+          cp "$RUNNER_TEMP"/dist/* .
+          git add metrics.light.svg metrics.dark.svg summary.json
+          git commit --quiet -m "chore(metrics): update generated metrics"
+          git push --force origin metrics-publish:metrics
