@@ -1,30 +1,21 @@
-## Hi there 👋
+# Diki Alif Taufik
 
-<!--
-**dikialiftaufik/dikialiftaufik** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Junior Software Engineer** · Bandung, Indonesia
 
-Here are some ideas to get you started:
+[LinkedIn](https://www.linkedin.com/in/dikialiftaufik/) · [Portfolio](https://portfolio-dikialiftaufik.vercel.app/) · [GitHub](https://github.com/dikialiftaufik)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Selected projects
 
-[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31m2dtpr2oycvw4npkirk5pny2jy&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&profanity=false)](https://github.com/kittinan/spotify-github-profile)
+| Project | What it does | Stack | Live |
+| --- | --- | --- | --- |
+| [**TaskGrader**](https://github.com/dikialiftaufik/task-grader) | Web platform that automatically grades object-oriented programming lab assignments (PDF reports and Java source code) using generative AI, with teaching-assistant review and student appeal flows. | TypeScript, PostgreSQL | [Demo](https://task-grader.vercel.app) |
+| [**Harum Wastra**](https://github.com/dikialiftaufik/harum-wastra) | Storefront for aromatherapy candles made from used cooking oil. Visitors drop off oil, earn points, and redeem them for products. | Next.js, React, TypeScript, Tailwind CSS | [Demo](https://harum-wastra.vercel.app) |
 
-###
+## Activity
 
-<img src="https://raw.githubusercontent.com/dikialiftaufik/dikialiftaufik/output/snake.svg" alt="Snake animation" />
+Generated daily from GitHub data ([how it is computed](docs/METRICS.md)). Percentages reflect share of code written, not proficiency.
 
-###
-
-<div>
-  <img style="100%" src="https://capsule-render.vercel.app/api?type=waving&height=5&section=header&reversal=false&fontSize=70&fontColor=FFFFFF&fontAlign=50&fontAlignY=50&stroke=-&descSize=20&descAlign=50&descAlignY=50&theme=cobalt"  />
-</div>
-
-###
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dikialiftaufik/dikialiftaufik/metrics/metrics.dark.svg">
+  <img alt="GitHub activity summary: most-used languages, coding habits, and contribution calendar" src="https://raw.githubusercontent.com/dikialiftaufik/dikialiftaufik/metrics/metrics.light.svg">
+</picture>
